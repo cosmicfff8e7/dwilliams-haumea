@@ -1,0 +1,77 @@
+index.css
+/* mobile responsiveness*/
+body {
+    margin: 10px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+  
+  h2 {
+    font-size: 30px;
+  }
+  
+  li {
+    font-size: 20px;
+  }
+  
+  p {
+    font-size: 20px;
+  }
+  
+  p {
+    margin: 19px 0px 0px 0px;
+  }
+  
+  @media (max-width: 600px) {
+    body {
+      margin: 3px;
+    }
+
+    h1 {
+        font-size: 20px;
+      }
+      
+      h2 {
+        font-size: 15px;
+      }
+      
+      li {
+        font-size: 10px;
+      }
+      
+      p {
+        font-size: 10px;
+      }
+      
+      p {
+        margin: 7px 0px 0px 0px;
+      }
+
+
+
+      
+    <section id="Connect">
+    <div class = "Connect"> 
+    <h2> <span style = "font-family:Courier"> Connect </span> </h2>
+    <ul>
+        <div class = "EmailSection"> 
+        <img src="https://imaginethatcreative.net/blog/wp-content/uploads/2023/06/2250206.png" alt="Email Icon"
+        width="25" 
+        height="25">
+        <p>Email: daigianna1@gmail.com</p>
+    </div>
+
+
+    <div class = "GitHubSection">
+        <img src="https://pngimg.com/d/github_PNG72.png" alt="GitHub Icon"
+        width="25" 
+        height="25" >
+        <p>GitHub: cosmicfff8e7</p>
+    </div>
+    </ul>
+</section>
+</div>
+  }
+  

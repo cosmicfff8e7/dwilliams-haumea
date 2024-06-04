@@ -1,0 +1,50 @@
+/* Mobile responsiveness */
+body {
+  margin: 10px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+li {
+  font-size: 20px;
+}
+
+p {
+  font-size: 20px;
+  margin: 19px 0 0 0;
+}
+
+@media (max-width: 600px) {
+  body {
+      margin: 3px;
+  }
+
+  h1 {
+      font-size: 20px;
+  }
+  
+  h2 {
+      font-size: 15px;
+  }
+  
+  li {
+      font-size: 10px;
+  }
+  
+  p {
+      font-size: 10px;
+      margin: 7px 0 0 0;
+  }
+
+  /* Adjusting image sizes for Connect section */
+  .Connect img {
+      width: 25px;
+      height: 25px;
+  }
+}

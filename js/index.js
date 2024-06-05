@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const footer = document.querySelector("footer");
 
     const copyright = document.createElement("p");
-    copyright.innerHTML = `&copy; ${thisYear} DaiGianna Williams`;
+    copyright.innerHTML = `&copy; ${thisYear} AB Williams`;
 
     footer.appendChild(copyright);
 
@@ -60,23 +60,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const GITHUB_USERNAME = "cosmicfff8e7";
 
-    fetch(`https://api.github.com/users/$cosmicfff8e7/repos`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("ERROR");
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-            return data;
-        })
-        .then(repositories => {
-            console.log(repositories);
-        })
-        .catch(error => {
-            console.error("ERROR", error);
-        });
+    fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("ERROR");
+        }
+        return response.json();
+    })
+    .then(repositories => {
+        for (let i = 0; i < repositories.length; i++) {
+            const projectName = repositories[i].name;
+            const project = document.createElement("li");
+            project.innerHTML = `<a href="${repositories[i].html_url}" target="_blank">${projectName}</a>`;
+            projectList.appendChild(project);
+        }
+    })
+    .catch(error => {
+        console.error("ERROR", error);
+    });
+
 
         const projectSection = document.getElementById("Projects");
         const projectList = projectSection.querySelector();
@@ -91,29 +93,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-// API endpoint URL
-const url = "https://api.artic.edu/api/v1/artworks";
+/const API_BASE_URL = 'https://api.artic.edu/api/v1';
+const IIIF_BASE_URL = 'https://www.artic.edu/iiif/2';
 
-// Fetch data from the API endpoint
-fetch(url)
-  .then(response => {
-    // Check if the response is successful
-    if (!response.ok) {
-      throw new Error('ERROR');
+// Function to fetch artworks from the API
+async function fetchArtworks() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/artworks/search?query[term][is_public_domain]=true&limit=10&fields=id,title,image_id`);
+        const data = await response.json();
+        return data.data;
+    } catch (error) {
+        console.error('ERROR:', error);
+        return [];
     }
-    // Parse JSON data from the response
-    return response.json();
-  })
-  .then(data => {
-    // Example: Print titles of artworks
-    data.data.forEach(artwork => {
-      console.log(artwork.title);
-    });
-  })
-  .catch(error => {
-    console.error('ERROR', error);
-  });
+}
 
+// Function to construct IIIF URLs for artworks' images
+function constructIIIFUrl(imageId) {
+    return `${IIIF_BASE_URL}/${imageId}/full/843,/0/default.jpg`;
+}
 
 
 

@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
     footer.appendChild(copyright);
 
     const skillsSection = document.getElementById("Skills");
-    console.log("skillsSection:", skillsSection); // Check if skillsSection is correctly referencing the <section> element
+    console.log("skillsSection:", skillsSection); 
 
     const skillsList = skillsSection.querySelector("ul");
-    console.log("skillsList:", skillsList); // Check if skillsList is correctly referencing the <ul> element
+    console.log("skillsList:", skillsList); 
 
     const skills = ["Python", "JavaScript", "HTML", "CSS", "R/Stata"];
     
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
-    
+
     const GITHUB_USERNAME = "cosmicfff8e7";
 
     fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
@@ -91,29 +91,6 @@ document.addEventListener("DOMContentLoaded", function() {
         project.innerText = repositories[i].name;
         projectList.appendChild(project);
     }
-
-
-
-
-/const API_BASE_URL = 'https://api.artic.edu/api/v1';
-const IIIF_BASE_URL = 'https://www.artic.edu/iiif/2';
-
-// Function to fetch artworks from the API
-async function fetchArtworks() {
-    try {
-        const response = await fetch(`${API_BASE_URL}/artworks/search?query[term][is_public_domain]=true&limit=10&fields=id,title,image_id`);
-        const data = await response.json();
-        return data.data;
-    } catch (error) {
-        console.error('ERROR:', error);
-        return [];
-    }
-}
-
-// Function to construct IIIF URLs for artworks' images
-function constructIIIFUrl(imageId) {
-    return `${IIIF_BASE_URL}/${imageId}/full/843,/0/default.jpg`;
-}
 
 
 
